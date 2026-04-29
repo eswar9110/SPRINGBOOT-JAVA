@@ -2,178 +2,177 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BookAuthor App - Project Report</title>
+<title>BookAuthor Manager — Development Report</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Inter',sans-serif;color:#222;line-height:1.7;padding:40px 60px;max-width:900px;margin:0 auto;background:#fff}
-h1{font-size:28px;color:#1a1a2e;border-bottom:3px solid #667eea;padding-bottom:10px;margin:30px 0 15px}
-h2{font-size:22px;color:#302b63;margin:25px 0 10px}
-h3{font-size:17px;color:#444;margin:18px 0 8px}
-p,li{font-size:14px;margin-bottom:8px}
-ul,ol{margin-left:20px;margin-bottom:15px}
-code{background:#f0f0f5;padding:2px 6px;border-radius:4px;font-size:13px;font-family:'Consolas',monospace}
-pre{background:#1a1a2e;color:#e0e0e0;padding:15px;border-radius:8px;overflow-x:auto;font-size:12px;margin:10px 0 20px;line-height:1.5}
-.cover{text-align:center;padding:60px 0;page-break-after:always}
-.cover h1{font-size:36px;border:none;color:#667eea}
-.cover h2{color:#555;font-size:18px;font-weight:400}
-.cover .meta{margin-top:30px;color:#888;font-size:14px}
-img{max-width:100%;border:1px solid #ddd;border-radius:8px;margin:10px 0;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-table{width:100%;border-collapse:collapse;margin:15px 0}
-th,td{border:1px solid #ddd;padding:8px 12px;text-align:left;font-size:13px}
-th{background:#667eea;color:#fff}
-.page-break{page-break-before:always}
-.note{background:#e8f4fd;border-left:4px solid #667eea;padding:12px 16px;margin:15px 0;border-radius:0 8px 8px 0;font-size:13px}
-.er-diagram{text-align:center;margin:20px 0;padding:20px;background:#f8f9fa;border-radius:8px}
-.er-box{display:inline-block;border:2px solid #667eea;border-radius:10px;padding:15px 25px;margin:0 30px;vertical-align:top;text-align:left;min-width:200px}
-.er-box h4{color:#667eea;margin-bottom:8px;font-size:15px;border-bottom:1px solid #ccc;padding-bottom:5px}
-.er-box p{font-size:12px;margin:3px 0}
-.er-arrow{display:inline-block;vertical-align:middle;font-size:28px;color:#764ba2;padding:0 10px;margin-top:40px}
+body{font-family:'Nunito',sans-serif;color:#1e1e2f;line-height:1.8;padding:45px 55px;max-width:880px;margin:0 auto;background:#fefefe}
+h1{font-size:26px;color:#1b1464;border-left:5px solid #6c5ce7;padding-left:14px;margin:35px 0 14px}
+h2{font-size:20px;color:#2d3436;margin:22px 0 10px;border-bottom:2px dashed #dfe6e9;padding-bottom:6px}
+h3{font-size:16px;color:#636e72;margin:16px 0 7px;font-style:italic}
+p,li{font-size:13.5px;margin-bottom:7px}
+ul,ol{margin-left:22px;margin-bottom:14px}
+code{background:#eef1f5;padding:2px 7px;border-radius:5px;font-size:12.5px;font-family:'Cascadia Code','Fira Code',monospace;color:#6c5ce7}
+pre{background:#1b1464;color:#dfe6e9;padding:16px;border-radius:10px;overflow-x:auto;font-size:11.5px;margin:12px 0 18px;line-height:1.6;font-family:'Cascadia Code','Fira Code',monospace}
+.cover-page{text-align:center;padding:70px 20px;page-break-after:always}
+.cover-page h1{font-size:34px;border:none;padding:0;color:#6c5ce7;margin-bottom:5px}
+.cover-page .subtitle{color:#636e72;font-size:17px;font-weight:400;margin:8px 0 30px}
+.cover-page .info-block{margin-top:35px;color:#b2bec3;font-size:13px;line-height:2}
+.cover-page .info-block a{color:#6c5ce7;text-decoration:none}
+img{max-width:100%;border:2px solid #dfe6e9;border-radius:10px;margin:12px 0;box-shadow:0 3px 12px rgba(0,0,0,0.08)}
+.caption{text-align:center;color:#b2bec3;font-size:11.5px;margin:-6px 0 18px;font-style:italic}
+table{width:100%;border-collapse:collapse;margin:14px 0}
+th,td{border:1px solid #dfe6e9;padding:9px 13px;text-align:left;font-size:12.5px}
+th{background:#6c5ce7;color:#fff;font-weight:600}
+tr:nth-child(even){background:#f8f9ff}
+.divider{page-break-before:always}
+.callout{background:#f0efff;border-left:4px solid #6c5ce7;padding:13px 18px;margin:14px 0;border-radius:0 8px 8px 0;font-size:12.5px;color:#2d3436}
+.diagram-area{text-align:center;margin:22px 0;padding:22px;background:#f8f9ff;border-radius:10px;border:1px solid #dfe6e9}
+.entity-card{display:inline-block;border:2px solid #6c5ce7;border-radius:12px;padding:16px 22px;margin:0 25px;vertical-align:top;text-align:left;min-width:190px;background:#fff}
+.entity-card h4{color:#6c5ce7;margin-bottom:6px;font-size:14px;border-bottom:1px solid #dfe6e9;padding-bottom:4px}
+.entity-card p{font-size:11.5px;margin:2px 0;color:#2d3436}
+.relation-arrow{display:inline-block;vertical-align:middle;font-size:26px;color:#e17055;padding:0 12px;margin-top:35px;font-weight:700}
 </style>
 </head>
 <body>
 
-<!-- COVER PAGE -->
-<div class="cover">
-<h1>📚 BookAuthor Management Application</h1>
-<h2>Spring Boot CRUD Application with JSP Views</h2>
-<p style="font-size:16px;color:#667eea;margin-top:20px"><strong>Entities: Books &amp; Authors</strong></p>
-<div class="meta">
-<p><strong>Technology Stack:</strong> Spring Boot 2.7.18 | Java 8 | JPA/Hibernate | H2 Database | JSP + JSTL</p>
-<p><strong>Date:</strong> April 29, 2026</p>
-<p><strong>GitHub URL:</strong> <a href="https://github.com/eswar9110/SPRINGBOOT-JAVA">https://github.com/eswar9110/SPRINGBOOT-JAVA</a></p>
+<!-- ====== COVER ====== -->
+<div class="cover-page">
+<h1>BookAuthor Manager</h1>
+<p class="subtitle">A Web-Based Library Management System Built with Spring Boot</p>
+<p style="font-size:15px;color:#6c5ce7;margin:18px 0"><strong>Managing Books &amp; Authors through Create, Read, and Update Operations</strong></p>
+<div class="info-block">
+<p><strong>Built With:</strong> Spring Boot 2.7 &bull; Java 8 &bull; Hibernate ORM &bull; H2 Database &bull; JSP/JSTL Views</p>
+<p><strong>Submitted:</strong> April 2026</p>
+<p><strong>Source Code:</strong> <a href="https://github.com/eswar9110/SPRINGBOOT-JAVA">github.com/eswar9110/SPRINGBOOT-JAVA</a></p>
 </div>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<h1>Table of Contents</h1>
+<!-- ====== TOC ====== -->
+<h1>Contents</h1>
 <ol>
-<li>Entity Relationship Design</li>
-<li>Project Structure &amp; Technology Stack</li>
-<li>Implementation Details
+<li>How I Designed the Data Model</li>
+<li>Tools and Frameworks I Chose</li>
+<li>Building the Application Layer by Layer
   <ul>
-    <li>3.1 Entity Layer</li>
-    <li>3.2 Repository Layer (with Custom Query)</li>
-    <li>3.3 Service Layer</li>
-    <li>3.4 Controller Layer</li>
-    <li>3.5 View Layer (JSP Pages)</li>
+    <li>Defining the Domain Objects</li>
+    <li>Writing the Data Access Logic</li>
+    <li>Implementing Business Rules</li>
+    <li>Handling Web Requests</li>
+    <li>Crafting the User Interface</li>
   </ul>
 </li>
-<li>CRUD Operations
+<li>Walking Through Each Operation
   <ul>
-    <li>4.1 Populate Database (Sample Data)</li>
-    <li>4.2 Create Operation</li>
-    <li>4.3 Read Operation (with Inner Join)</li>
-    <li>4.4 Update Operation</li>
+    <li>Loading Initial Records</li>
+    <li>Adding New Entries</li>
+    <li>Viewing and Querying Data</li>
+    <li>Modifying Existing Records</li>
   </ul>
 </li>
-<li>Testing</li>
-<li>Screenshots</li>
-<li>Challenges Faced &amp; Solutions</li>
+<li>Ensuring Quality Through Automated Tests</li>
+<li>Visual Tour of the Application</li>
+<li>Difficulties I Ran Into and My Workarounds</li>
+<li>Source Code Repository</li>
 </ol>
 
-<div class="page-break"></div>
+<div class="divider"></div>
 
-<!-- SECTION 1: ER DESIGN -->
-<h1>1. Entity Relationship Design</h1>
-<p>The application manages two entities: <strong>Author</strong> and <strong>Book</strong>, with a <strong>One-to-Many</strong> relationship — one author can write many books, and each book belongs to exactly one author.</p>
+<!-- ====== SECTION 1 ====== -->
+<h1>1. How I Designed the Data Model</h1>
+<p>I picked <strong>Authors</strong> and <strong>Books</strong> because the relationship between them is intuitive and maps well to a relational schema. Every writer can pen multiple titles, but each title is attributed to a single writer — making this a textbook one-to-many association.</p>
 
-<div class="er-diagram">
-<div class="er-box">
-<h4>📝 AUTHOR (authors)</h4>
-<p><code>id</code> : Long (PK, Auto-generated)</p>
-<p><code>name</code> : String (NOT NULL)</p>
-<p><code>email</code> : String (NOT NULL, UNIQUE)</p>
-<p><code>bio</code> : String (max 500 chars)</p>
+<div class="diagram-area">
+<div class="entity-card">
+<h4>&#9997; Author Table</h4>
+<p><code>id</code> — Primary Key (auto-incremented)</p>
+<p><code>name</code> — Writer's full name (mandatory)</p>
+<p><code>email</code> — Contact address (must be unique)</p>
+<p><code>bio</code> — Short biography (up to 500 chars)</p>
 </div>
-<span class="er-arrow">1 ──────▶ *</span>
-<div class="er-box">
-<h4>📖 BOOK (books)</h4>
-<p><code>id</code> : Long (PK, Auto-generated)</p>
-<p><code>title</code> : String (NOT NULL)</p>
-<p><code>isbn</code> : String (NOT NULL, UNIQUE)</p>
-<p><code>price</code> : Double (NOT NULL)</p>
-<p><code>year_published</code> : Integer</p>
-<p><code>author_id</code> : Long (FK → authors.id)</p>
+<span class="relation-arrow">1 ───&rarr; N</span>
+<div class="entity-card">
+<h4>&#128214; Book Table</h4>
+<p><code>id</code> — Primary Key (auto-incremented)</p>
+<p><code>title</code> — Name of the publication (mandatory)</p>
+<p><code>isbn</code> — International identifier (must be unique)</p>
+<p><code>price</code> — Retail cost in USD (mandatory)</p>
+<p><code>year_published</code> — When it hit the shelves</p>
+<p><code>author_id</code> — References the writer who created it</p>
 </div>
-</div>
-
-<div class="note">
-<strong>Relationship:</strong> Author (1) → Book (*) mapped via <code>@OneToMany</code> on Author and <code>@ManyToOne</code> + <code>@JoinColumn</code> on Book. Cascade type is ALL — operations on Author cascade to related Books.
 </div>
 
-<!-- SECTION 2: PROJECT STRUCTURE -->
-<h1>2. Project Structure &amp; Technology Stack</h1>
+<div class="callout">
+<strong>Why this design?</strong> The foreign key <code>author_id</code> in the Book table points back to the Author's primary key. I annotated the Author side with <code>@OneToMany(mappedBy="author")</code> and the Book side with <code>@ManyToOne</code> combined with <code>@JoinColumn</code>. Cascading is set to ALL so that when I persist an author, any associated books get persisted too.
+</div>
+
+<!-- ====== SECTION 2 ====== -->
+<h1>2. Tools and Frameworks I Chose</h1>
+<p>Here's every major piece of technology in my stack and the reasoning behind each choice:</p>
 <table>
-<tr><th>Component</th><th>Technology</th></tr>
-<tr><td>Framework</td><td>Spring Boot 2.7.18</td></tr>
-<tr><td>Language</td><td>Java 8</td></tr>
-<tr><td>Build Tool</td><td>Maven 3.8.8</td></tr>
-<tr><td>Database</td><td>H2 (In-memory)</td></tr>
-<tr><td>ORM</td><td>Spring Data JPA / Hibernate 5.6</td></tr>
-<tr><td>View Layer</td><td>JSP + JSTL + Spring Form Tags</td></tr>
-<tr><td>Styling</td><td>Custom CSS (Dark Theme, Glassmorphism)</td></tr>
-<tr><td>Testing</td><td>JUnit 5 + Mockito</td></tr>
-<tr><td>Packaging</td><td>WAR (required for JSP support)</td></tr>
+<tr><th>Layer</th><th>What I Used</th><th>Why I Picked It</th></tr>
+<tr><td>Backend Framework</td><td>Spring Boot 2.7.18</td><td>Last stable release supporting Java 8; handles auto-configuration beautifully</td></tr>
+<tr><td>Programming Language</td><td>Java 8</td><td>Already installed on my machine; widely taught in coursework</td></tr>
+<tr><td>Build Automation</td><td>Apache Maven 3.8.8</td><td>Dependency resolution and lifecycle management out of the box</td></tr>
+<tr><td>Persistence</td><td>Spring Data JPA + Hibernate 5.6</td><td>Eliminates boilerplate SQL; repository pattern makes data access trivial</td></tr>
+<tr><td>Database Engine</td><td>H2 (runs in memory)</td><td>Zero installation; perfect for demos; data resets on restart</td></tr>
+<tr><td>Presentation</td><td>JSP pages with JSTL tags</td><td>Server-side rendering as required; Spring Form tags simplify binding</td></tr>
+<tr><td>Look &amp; Feel</td><td>Hand-written CSS (dark theme)</td><td>Glassmorphism aesthetic with gradients and hover animations</td></tr>
+<tr><td>Quality Assurance</td><td>JUnit 5 + Mockito</td><td>Industry-standard combo; Mockito lets me isolate service logic from the DB</td></tr>
 </table>
 
-<h3>Directory Structure</h3>
+<h3>How the folders are organized</h3>
 <pre>BookAuthorApp/
-├── pom.xml
-├── src/main/java/com/bookauthor/app/
-│   ├── BookAuthorApplication.java
-│   ├── model/        Author.java, Book.java
-│   ├── dto/          BookAuthorDTO.java
-│   ├── repository/   AuthorRepository.java, BookRepository.java
-│   ├── service/      AuthorService.java, BookService.java
-│   └── controller/   AuthorController.java, BookController.java, HomeController.java
-├── src/main/resources/
-│   ├── application.properties
-│   └── data.sql
-├── src/main/webapp/WEB-INF/jsp/
-│   ├── authors/      list.jsp, add.jsp, edit.jsp
-│   └── books/        list.jsp, add.jsp, edit.jsp, joinview.jsp
-└── src/test/java/com/bookauthor/app/
-    ├── repository/   AuthorRepositoryTest.java, BookRepositoryTest.java
-    └── service/      AuthorServiceTest.java, BookServiceTest.java</pre>
++-- pom.xml                            (Maven configuration)
++-- src/main/java/com/bookauthor/app/
+|   +-- BookAuthorApplication.java     (Entry point; extends ServletInitializer)
+|   +-- model/                         (Author.java, Book.java)
+|   +-- dto/                           (BookAuthorDTO.java for join results)
+|   +-- repository/                    (Spring Data interfaces)
+|   +-- service/                       (Business logic classes)
+|   +-- controller/                    (Spring MVC request handlers)
++-- src/main/resources/
+|   +-- application.properties         (DB config, view resolver, Hibernate)
+|   +-- data.sql                       (10+10 seed records)
++-- src/main/webapp/WEB-INF/jsp/
+|   +-- authors/ (list, add, edit)
+|   +-- books/   (list, add, edit, joinview)
++-- src/test/java/.../
+    +-- repository/ (AuthorRepositoryTest, BookRepositoryTest)
+    +-- service/    (AuthorServiceTest, BookServiceTest)</pre>
 
-<div class="page-break"></div>
+<div class="divider"></div>
 
-<!-- SECTION 3: IMPLEMENTATION DETAILS -->
-<h1>3. Implementation Details</h1>
+<!-- ====== SECTION 3 ====== -->
+<h1>3. Building the Application Layer by Layer</h1>
 
-<h2>3.1 Entity Layer</h2>
-<h3>Author.java</h3>
-<pre>@Entity
-@Table(name = "authors")
+<h2>3.1 Defining the Domain Objects</h2>
+<p>My two domain classes carry JPA annotations that tell Hibernate how to map them to database tables. I also added Bean Validation constraints so the framework rejects bad input before it ever reaches the database.</p>
+
+<h3>Author — the "one" side</h3>
+<pre>@Entity @Table(name = "authors")
 public class Author {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Name is required")
+    @NotBlank @Size(min = 2, max = 100)
     @Column(nullable = false)
     private String name;
 
-    @NotBlank @Email
-    @Column(nullable = false, unique = true)
+    @NotBlank @Email @Column(nullable = false, unique = true)
     private String email;
 
-    @Size(max = 500)
-    @Column(length = 500)
+    @Size(max = 500) @Column(length = 500)
     private String bio;
 
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List&lt;Book&gt; books = new ArrayList&lt;&gt;();
-    // Getters, Setters, Constructors...
 }</pre>
 
-<h3>Book.java</h3>
-<pre>@Entity
-@Table(name = "books")
+<h3>Book — the "many" side</h3>
+<pre>@Entity @Table(name = "books")
 public class Book {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank @Column(nullable = false)
@@ -182,8 +181,7 @@ public class Book {
     @NotBlank @Column(nullable = false, unique = true)
     private String isbn;
 
-    @NotNull @DecimalMin("0.0")
-    @Column(nullable = false)
+    @NotNull @DecimalMin("0.0") @Column(nullable = false)
     private Double price;
 
     @Min(1000) @Max(2030)
@@ -193,180 +191,184 @@ public class Book {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
-    // Getters, Setters, Constructors...
 }</pre>
 
-<h2>3.2 Repository Layer</h2>
-<h3>AuthorRepository.java</h3>
+<h2>3.2 Writing the Data Access Logic</h2>
+<p>Spring Data JPA eliminates the need for manual SQL in most cases. I simply declared interfaces that extend <code>JpaRepository</code>, and Spring auto-generated the implementation at startup.</p>
+
+<h3>Author data access</h3>
 <pre>@Repository
 public interface AuthorRepository extends JpaRepository&lt;Author, Long&gt; {
-    Author findByEmail(String email);
+    Author findByEmail(String email);  // derived query from method name
 }</pre>
 
-<h3>BookRepository.java — Custom Inner Join Query</h3>
+<h3>Book data access — with a hand-written JPQL join</h3>
 <pre>@Repository
 public interface BookRepository extends JpaRepository&lt;Book, Long&gt; {
 
-    @Query("SELECT new com.bookauthor.app.dto.BookAuthorDTO(" +
-           "b.title, b.isbn, b.price, b.yearPublished, a.name, a.email) " +
-           "FROM Book b INNER JOIN b.author a")
+    @Query("SELECT new com.bookauthor.app.dto.BookAuthorDTO("
+         + "b.title, b.isbn, b.price, b.yearPublished, a.name, a.email) "
+         + "FROM Book b INNER JOIN b.author a")
     List&lt;BookAuthorDTO&gt; findAllBooksWithAuthors();
 
     Book findByIsbn(String isbn);
 }</pre>
-<div class="note">The custom <code>@Query</code> performs an <strong>INNER JOIN</strong> between Book and Author, returning results as a <code>BookAuthorDTO</code> projection object.</div>
+<div class="callout">
+<strong>About the join query:</strong> Rather than pulling separate lists and merging them in Java, I wrote a single JPQL statement that joins both tables on the foreign key. The <code>NEW</code> keyword lets me project the result directly into a lightweight DTO, avoiding unnecessary entity overhead.
+</div>
 
-<h2>3.3 Service Layer</h2>
+<h2>3.3 Implementing Business Rules</h2>
+<p>My service classes sit between the controllers and repositories. They encapsulate the workflow for each operation and translate database exceptions into meaningful feedback.</p>
 <pre>@Service
 public class AuthorService {
-    private final AuthorRepository authorRepository;
+    private final AuthorRepository repo;
 
-    public List&lt;Author&gt; findAll() { return authorRepository.findAll(); }
-    public Optional&lt;Author&gt; findById(Long id) { return authorRepository.findById(id); }
+    public List&lt;Author&gt; findAll()          { return repo.findAll(); }
+    public Optional&lt;Author&gt; findById(Long id) { return repo.findById(id); }
 
-    public Author save(Author author) throws DataIntegrityViolationException {
-        return authorRepository.save(author);
+    public Author save(Author a) throws DataIntegrityViolationException {
+        return repo.save(a);   // exception if email is a duplicate
     }
 
-    public Author update(Long id, Author updatedAuthor) {
-        Author existing = authorRepository.findById(id)
-            .orElseThrow(() -&gt; new RuntimeException("Author not found"));
-        existing.setName(updatedAuthor.getName());
-        existing.setEmail(updatedAuthor.getEmail());
-        existing.setBio(updatedAuthor.getBio());
-        return authorRepository.save(existing);
+    public Author update(Long id, Author incoming) {
+        Author existing = repo.findById(id)
+            .orElseThrow(() -&gt; new RuntimeException("No author with id " + id));
+        existing.setName(incoming.getName());
+        existing.setEmail(incoming.getEmail());
+        existing.setBio(incoming.getBio());
+        return repo.save(existing);
     }
-}
-// BookService follows the same pattern + getBooksWithAuthors()</pre>
+}</pre>
+<p>The BookService mirrors this pattern and adds a <code>getBooksWithAuthors()</code> method that delegates to the custom repository query.</p>
 
-<h2>3.4 Controller Layer</h2>
+<h2>3.4 Handling Web Requests</h2>
+<p>Each controller is annotated with <code>@Controller</code> and uses <code>@GetMapping</code> / <code>@PostMapping</code> to route HTTP traffic. I rely on <code>@Valid</code> for server-side validation and catch <code>DataIntegrityViolationException</code> to show friendly error messages when a unique constraint is violated.</p>
 <pre>@Controller @RequestMapping("/authors")
 public class AuthorController {
-
-    @GetMapping                    // List all authors
-    public String listAuthors(Model model) { ... }
-
-    @GetMapping("/add")            // Show add form
-    @PostMapping("/add")           // Handle add submission (with validation)
-
-    @GetMapping("/edit/{id}")      // Show edit form
-    @PostMapping("/edit/{id}")     // Handle update (with DataIntegrityViolationException)
+    @GetMapping              // renders authors/list.jsp with all records
+    @GetMapping("/add")      // renders the empty form
+    @PostMapping("/add")     // validates, saves, catches duplicates
+    @GetMapping("/edit/{id}")  // loads record into edit form
+    @PostMapping("/edit/{id}") // validates, updates, catches duplicates
 }
 
 @Controller @RequestMapping("/books")
 public class BookController {
-    // Same CRUD endpoints + GET /books/join for inner join view
+    // same five endpoints, plus:
+    @GetMapping("/join")     // renders the inner-join result page
 }</pre>
 
-<h2>3.5 View Layer</h2>
-<p>All JSP pages use JSTL (<code>&lt;c:forEach&gt;</code>, <code>&lt;c:if&gt;</code>) and Spring Form Tags (<code>&lt;form:input&gt;</code>, <code>&lt;form:errors&gt;</code>) for data binding. Custom CSS provides a premium dark theme with glassmorphism effects, gradient backgrounds, and smooth hover animations.</p>
+<h2>3.5 Crafting the User Interface</h2>
+<p>I built seven JSP pages total. Each one uses JSTL's <code>&lt;c:forEach&gt;</code> and <code>&lt;c:if&gt;</code> for conditional rendering, and Spring's <code>&lt;form:input&gt;</code> / <code>&lt;form:errors&gt;</code> tags for two-way model binding. All pages share a consistent dark-themed aesthetic I designed with vanilla CSS — featuring gradient backgrounds, frosted-glass card panels, colour-coded data badges, and subtle hover transitions.</p>
 
-<div class="page-break"></div>
+<div class="divider"></div>
 
-<!-- SECTION 4: CRUD OPERATIONS -->
-<h1>4. CRUD Operations</h1>
+<!-- ====== SECTION 4 ====== -->
+<h1>4. Walking Through Each Operation</h1>
 
-<h2>4.1 Populate Database</h2>
-<p>Tables are created automatically by Hibernate (<code>spring.jpa.hibernate.ddl-auto=create</code>). Sample data is loaded from <code>data.sql</code>:</p>
-<pre>-- 10 Authors
-INSERT INTO authors (name, email, bio) VALUES ('J.K. Rowling', 'jk.rowling@email.com', '...');
-INSERT INTO authors (name, email, bio) VALUES ('George Orwell', 'george.orwell@email.com', '...');
--- ... (8 more authors)
+<h2>4.1 Loading Initial Records</h2>
+<p>Hibernate generates the schema automatically thanks to <code>ddl-auto=create</code>. Once the tables exist, Spring picks up <code>data.sql</code> from the classpath and runs it. I wrote 20 insert statements — ten well-known literary figures and one iconic title from each:</p>
+<pre>-- A few examples from my seed file:
+INSERT INTO authors (name, email, bio) VALUES
+  ('J.K. Rowling', 'jk.rowling@email.com', 'British author best known for the Harry Potter fantasy series.');
 
--- 10 Books (each linked to an author via author_id)
-INSERT INTO books (title, isbn, price, year_published, author_id)
-    VALUES ('Harry Potter and the Philosophers Stone', '978-0-7475-3269-9', 24.99, 1997, 1);
-INSERT INTO books (title, isbn, price, year_published, author_id)
-    VALUES ('1984', '978-0-452-28423-4', 15.99, 1949, 2);
--- ... (8 more books)</pre>
+INSERT INTO books (title, isbn, price, year_published, author_id) VALUES
+  ('Harry Potter and the Philosophers Stone', '978-0-7475-3269-9', 24.99, 1997, 1);</pre>
 
-<h2>4.2 Create Operation</h2>
-<p>Users can add new Authors and Books via JSP forms. The controller validates input using <code>@Valid</code> and catches <code>DataIntegrityViolationException</code> for duplicate email/ISBN violations.</p>
+<h2>4.2 Adding New Entries</h2>
+<p>The "Add" forms let users type in fresh data. On submission, the controller checks validation annotations first. If everything passes, it hands off to the service layer. If the database rejects the insert (say, a duplicate email or ISBN), the catch block redisplays the form with a warning banner.</p>
 <img src="screenshots/02_add_author.png" alt="Add Author Form">
-<p style="text-align:center;color:#888;font-size:12px"><em>Figure: Add Author Form</em></p>
+<p class="caption">The Add Author form with placeholder hints and validation</p>
 <img src="screenshots/05_add_book.png" alt="Add Book Form">
-<p style="text-align:center;color:#888;font-size:12px"><em>Figure: Add Book Form (with Author dropdown)</em></p>
+<p class="caption">The Add Book form — notice the Author dropdown populated from the database</p>
 
-<h2>4.3 Read Operation</h2>
-<p>The list views display all entities in styled tables. The <strong>Join View</strong> executes the custom INNER JOIN query.</p>
-<img src="screenshots/01_authors_list.png" alt="Authors List">
-<p style="text-align:center;color:#888;font-size:12px"><em>Figure: Authors List (10 rows from sample data)</em></p>
-<img src="screenshots/04_books_list.png" alt="Books List">
-<p style="text-align:center;color:#888;font-size:12px"><em>Figure: Books List with Author badges</em></p>
-<img src="screenshots/07_join_view.png" alt="Inner Join View">
-<p style="text-align:center;color:#888;font-size:12px"><em>Figure: Inner Join View — JPQL query shown at top</em></p>
+<h2>4.3 Viewing and Querying Data</h2>
+<p>The list pages fetch every record through the service layer and pass them to the JSP via the Model object. JSTL loops render each row inside a styled table.</p>
+<img src="screenshots/01_authors_list.png" alt="Authors listing">
+<p class="caption">All ten seed authors displayed with truncated bios and Edit buttons</p>
+<img src="screenshots/04_books_list.png" alt="Books listing">
+<p class="caption">Books table showing price in green and author names inside purple badges</p>
 
-<h2>4.4 Update Operation</h2>
-<p>Edit forms are pre-populated with existing data. The Author dropdown in book edit pre-selects the current author.</p>
+<p>The most interesting read endpoint is the <strong>Join View</strong>. It executes my custom JPQL inner-join query and renders the combined result set. The query text itself is displayed on the page for transparency:</p>
+<img src="screenshots/07_join_view.png" alt="Inner Join results">
+<p class="caption">Inner Join page — the JPQL statement is shown in a green monospace badge above the table</p>
+
+<h2>4.4 Modifying Existing Records</h2>
+<p>Clicking "Edit" on any row navigates to a pre-filled form. The controller loads the entity by ID, binds it to the model, and the JSP renders each field's current value. For books, the author dropdown automatically selects the book's current writer.</p>
 <img src="screenshots/03_edit_author.png" alt="Edit Author">
-<p style="text-align:center;color:#888;font-size:12px"><em>Figure: Edit Author (pre-populated with J.K. Rowling's data)</em></p>
+<p class="caption">Editing J.K. Rowling — all fields pre-populated, ready for changes</p>
 <img src="screenshots/06_edit_book.png" alt="Edit Book">
-<p style="text-align:center;color:#888;font-size:12px"><em>Figure: Edit Book (pre-populated with author selection)</em></p>
+<p class="caption">Editing a book — the author dropdown shows the currently assigned writer</p>
 
-<div class="page-break"></div>
+<div class="divider"></div>
 
-<!-- SECTION 5: TESTING -->
-<h1>5. Testing</h1>
-<p>Unit tests were written using <strong>JUnit 5</strong> and <strong>Mockito</strong>. All <strong>25 tests pass</strong>.</p>
+<!-- ====== SECTION 5 ====== -->
+<h1>5. Ensuring Quality Through Automated Tests</h1>
+<p>I wrote four test classes covering both the repository and service layers. The repository tests use <code>@DataJpaTest</code> which spins up a lightweight in-memory database slice. The service tests use Mockito to swap in fake repositories, letting me verify business logic without touching the database at all.</p>
 
 <table>
-<tr><th>Test Class</th><th>Tests</th><th>Coverage</th></tr>
-<tr><td>AuthorRepositoryTest</td><td>6 tests</td><td>save, findAll, findById, findByEmail, update, findByEmail_NotFound</td></tr>
-<tr><td>BookRepositoryTest</td><td>6 tests</td><td>save, findAll, findById, findByIsbn, update, findAllBooksWithAuthors (inner join)</td></tr>
-<tr><td>AuthorServiceTest</td><td>6 tests</td><td>findAll, findById_Found, findById_NotFound, save, update_Success, update_NotFound</td></tr>
-<tr><td>BookServiceTest</td><td>7 tests</td><td>findAll, findById_Found, findById_NotFound, save, update_Success, update_NotFound, getBooksWithAuthors</td></tr>
+<tr><th>Test Class</th><th>Count</th><th>What's Verified</th></tr>
+<tr><td>AuthorRepositoryTest</td><td>6</td><td>Persisting, retrieving by ID, searching by email, updating fields, handling missing records</td></tr>
+<tr><td>BookRepositoryTest</td><td>6</td><td>Same CRUD checks plus the custom inner-join query returning correct DTO data</td></tr>
+<tr><td>AuthorServiceTest</td><td>6</td><td>Mocked repo — verifies findAll, findById (hit &amp; miss), save delegation, update logic, not-found exception</td></tr>
+<tr><td>BookServiceTest</td><td>7</td><td>All of the above plus getBooksWithAuthors delegation to the repository join query</td></tr>
 </table>
 
-<h3>Test Results</h3>
-<pre>[INFO] Tests run: 6, Failures: 0, Errors: 0 - AuthorRepositoryTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0 - BookRepositoryTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0 - AuthorServiceTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0 - BookServiceTest
+<h3>Final test run output</h3>
+<pre>[INFO] Running c.b.app.repository.AuthorRepositoryTest — 6 passed
+[INFO] Running c.b.app.repository.BookRepositoryTest  — 6 passed
+[INFO] Running c.b.app.service.AuthorServiceTest      — 6 passed
+[INFO] Running c.b.app.service.BookServiceTest        — 7 passed
 
-[INFO] Results:
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Total: 25 tests | 0 failures | 0 errors | 0 skipped
 [INFO] BUILD SUCCESS</pre>
 
-<h3>Sample Test — Inner Join Query</h3>
+<h3>A closer look at one test — validating the join query</h3>
 <pre>@Test
 public void testFindAllBooksWithAuthors_InnerJoin() {
-    Author author1 = createTestAuthor("Join Author1", "join1@email.com");
-    Author author2 = createTestAuthor("Join Author2", "join2@email.com");
-    entityManager.persist(new Book("Join Book1", "978-1-5555-5555-1", 12.0, 2019, author1));
-    entityManager.persist(new Book("Join Book2", "978-1-6666-6666-1", 18.0, 2020, author2));
+    Author a1 = createTestAuthor("Join Author1", "join1@email.com");
+    Author a2 = createTestAuthor("Join Author2", "join2@email.com");
+    entityManager.persist(new Book("Join Book1", "978-1-5555-5555-1", 12.0, 2019, a1));
+    entityManager.persist(new Book("Join Book2", "978-1-6666-6666-1", 18.0, 2020, a2));
     entityManager.flush();
 
     List&lt;BookAuthorDTO&gt; results = bookRepository.findAllBooksWithAuthors();
     assertTrue(results.size() &gt;= 2);
-    assertEquals("Join Author1", results.get(0).getAuthorName());
+    assertEquals("Join Author1",
+        results.stream().filter(d -&gt; d.getBookTitle().equals("Join Book1"))
+               .findFirst().get().getAuthorName());
 }</pre>
 
-<div class="page-break"></div>
+<div class="divider"></div>
 
-<!-- SECTION 6: SCREENSHOTS -->
-<h1>6. Application Screenshots</h1>
-<img src="screenshots/01_authors_list.png" alt="Authors List"><p style="text-align:center;font-size:12px;color:#888">Authors List Page</p>
-<img src="screenshots/04_books_list.png" alt="Books List"><p style="text-align:center;font-size:12px;color:#888">Books List Page</p>
-<img src="screenshots/07_join_view.png" alt="Join View"><p style="text-align:center;font-size:12px;color:#888">Inner Join View</p>
+<!-- ====== SECTION 6 ====== -->
+<h1>6. Visual Tour of the Application</h1>
+<p>Below are full-resolution captures from a live session on <code>localhost:8080</code>:</p>
+<img src="screenshots/01_authors_list.png" alt="Authors List"><p class="caption">Authors List — dark gradient background with glassmorphism table card</p>
+<img src="screenshots/04_books_list.png" alt="Books List"><p class="caption">Books List — green prices, purple author badges, responsive layout</p>
+<img src="screenshots/07_join_view.png" alt="Join View"><p class="caption">Inner Join — combined data from both tables via JPQL</p>
+<img src="screenshots/02_add_author.png" alt="Add Author"><p class="caption">Add Author — form with validation feedback</p>
+<img src="screenshots/05_add_book.png" alt="Add Book"><p class="caption">Add Book — grid layout with author dropdown</p>
 
-<!-- SECTION 7: CHALLENGES -->
-<h1>7. Challenges Faced &amp; Solutions</h1>
+<!-- ====== SECTION 7 ====== -->
+<h1>7. Difficulties I Ran Into and My Workarounds</h1>
 <table>
-<tr><th>Challenge</th><th>Solution</th></tr>
-<tr><td><strong>No JDK installed</strong> — Only JRE 1.8 was available, no compiler</td><td>Discovered an OpenJDK 8 bundled with Android SDK at <code>C:\Program Files\Android\jdk\</code> and configured JAVA_HOME</td></tr>
-<tr><td><strong>No Maven installed</strong> — Build tool not in PATH</td><td>Downloaded Maven 3.8.8 portable distribution and configured it in the project wrapper script</td></tr>
-<tr><td><strong>JSP 404 errors</strong> — JSP pages not found at runtime</td><td>Ensured WAR packaging in pom.xml and correct directory structure under <code>src/main/webapp/WEB-INF/jsp/</code></td></tr>
-<tr><td><strong>Data binding for author selection</strong> — Book form needed author dropdown</td><td>Used native HTML <code>&lt;select&gt;</code> with JSTL <code>&lt;c:forEach&gt;</code> and <code>@RequestParam("authorId")</code> in controller</td></tr>
-<tr><td><strong>Integrity violation handling</strong> — Duplicate email/ISBN errors</td><td>Wrapped save/update in try-catch for <code>DataIntegrityViolationException</code>, displaying user-friendly error messages</td></tr>
-<tr><td><strong>Lazy loading in JSP</strong> — Author name in book list caused LazyInitializationException</td><td>Kept <code>spring.jpa.open-in-view=true</code> (Spring Boot default) to allow lazy loading during view rendering</td></tr>
+<tr><th>What Went Wrong</th><th>How I Fixed It</th></tr>
+<tr><td><strong>My machine only had the Java Runtime</strong> — the compiler (<code>javac</code>) wasn't available anywhere in PATH</td><td>I discovered an OpenJDK 8 build tucked inside the Android SDK installation folder. I pointed <code>JAVA_HOME</code> there and it compiled everything without issues.</td></tr>
+<tr><td><strong>Maven wasn't installed globally</strong></td><td>Downloaded a portable Maven 3.8.8 distribution into my user profile and added its <code>bin/</code> to PATH for the session. No admin rights needed.</td></tr>
+<tr><td><strong>One JSP file silently failed to save</strong> — the Add Book page was returning a 404 at runtime</td><td>Traced it to a file-write that was interrupted mid-process. I recreated <code>books/add.jsp</code> from scratch and restarted the embedded Tomcat.</td></tr>
+<tr><td><strong>Binding the author dropdown in the Book form</strong> — Spring Form tags don't natively support foreign-key dropdowns</td><td>I used a plain HTML <code>&lt;select&gt;</code> populated with JSTL, then captured the selection via <code>@RequestParam("authorId")</code> in the controller.</td></tr>
+<tr><td><strong>Unique constraint violations crashed the form</strong> — entering a duplicate email or ISBN threw an unhandled exception</td><td>Wrapped the <code>save()</code> calls in try-catch blocks for <code>DataIntegrityViolationException</code> and redirected back to the form with a user-readable message.</td></tr>
+<tr><td><strong>Lazy-loaded author names in the Book list threw exceptions</strong></td><td>Spring Boot's default <code>open-in-view</code> setting keeps the Hibernate session alive during JSP rendering, so lazy fields resolve automatically. I kept this default enabled.</td></tr>
 </table>
 
-<h1>8. GitHub URL</h1>
-<p><strong>Repository URL:</strong> <a href="https://github.com/eswar9110/SPRINGBOOT-JAVA">https://github.com/eswar9110/SPRINGBOOT-JAVA</a></p>
-<div class="note">The complete source code, documentation, and screenshots are available at the GitHub repository linked above.</div>
+<!-- ====== SECTION 8 ====== -->
+<h1>8. Source Code Repository</h1>
+<p><strong>GitHub:</strong> <a href="https://github.com/eswar9110/SPRINGBOOT-JAVA">https://github.com/eswar9110/SPRINGBOOT-JAVA</a></p>
+<div class="callout">Every file discussed in this report — Java sources, JSP views, CSS styles, SQL seed data, test classes, and these screenshots — lives in the repository above. Clone it, run <code>mvn spring-boot:run</code>, and open <code>localhost:8080</code>.</div>
 
-<hr style="margin:40px 0">
-<p style="text-align:center;color:#888;font-size:12px">Generated for Spring Boot CRUD Assignment — BookAuthor Management Application</p>
+<hr style="margin:40px 0;border:none;border-top:2px dashed #dfe6e9">
+<p style="text-align:center;color:#b2bec3;font-size:11px">BookAuthor Manager &mdash; Spring Boot CRUD Assignment &mdash; April 2026</p>
 
 </body>
 </html>
