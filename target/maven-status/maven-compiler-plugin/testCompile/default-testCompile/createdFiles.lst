@@ -1,0 +1,4 @@
+com\bookauthor\app\repository\BookRepositoryTest.class
+com\bookauthor\app\service\AuthorServiceTest.class
+com\bookauthor\app\service\BookServiceTest.class
+com\bookauthor\app\repository\AuthorRepositoryTest.class
